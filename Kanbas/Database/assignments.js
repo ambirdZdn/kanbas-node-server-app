@@ -1,0 +1,67 @@
+export default[
+    { "_id": "A101",
+     "title": "Propulsion Assignment", 
+     "course": "RS101", 
+     "modules": "Multiple Modules",
+     "available": "May 6 at 12:00am",
+     "due": "May 13 at 11:59pm",
+     "points": 100,
+     "description": "This assignment will test your understanding of propulsion systems."},
+  
+    { "_id": "A102", "title": "Combustion Analysis", "course": "RS101",
+      "modules": "Multiple Modules",
+      "available": "May 13 at 12:00am",
+      "due": "May 20 at 11:59pm",
+      "points": 100,
+      "description": "This assignment will test your understanding of combustion analysis."},
+  
+    { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101",
+      "modules": "Multiple Modules",
+      "available":"May 20 at 12:00am",
+      "due": "May 27 at 11:59pm",
+      "points": 100,
+      "description": "This assignment will test your understanding of nozzle design."},
+    
+    { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102",
+    "modules": "Multiple Modules",
+    "available": "May 6 at 12:00am",
+    "due": "May 13 at 11:59pm",
+    "points": 100,
+    "description": "This quiz will test your understanding of aerodynamics."},
+  
+    { "_id": "A202", "title": "Flow Analysis", "course": "RS102",
+    "modules": "Multiple Modules",
+    "available": "May 13 at 12:00am",
+    "due": "May 20 at 11:59pm",
+    "points": 100,
+    "description": "This assignment will test your understanding of flow analysis."},
+  
+    { "_id": "A203", "title": "Heating Analysis", "course": "RS102",
+    "modules": "Multiple Modules",
+    "available":"May 20 at 12:00am",
+    "due": "May 27 at 11:59pm",
+    "points": 100,
+    "description": "This assignment will test your understanding of heating analysis."},
+  
+    { "_id": "A301", "title": "Structural Design Task", "course": "RS103",
+    "modules": "Multiple Modules",
+    "available": "May 6 at 12:00am",
+    "due": "May 13 at 11:59pm",
+    "points": 100,
+    "description": "This task will test your understanding of structural design."},
+  
+    { "_id": "A302", "title": "Orbital Calculations", "course": "RS103",
+    "modules": "Multiple Modules",
+    "available": "May 13 at 12:00am",
+    "due": "May 20 at 11:59pm",
+    "points": 100,
+    "description": "This assignment will test your understanding of orbital calculations."},
+  
+    { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103",
+    "modules": "Multiple Modules",
+    "available":"May 20 at 12:00am",
+    "due": "May 27 at 11:59pm",
+    "points": 100,
+    "description": "This exam will test your understanding of systems engineering."}
+  ]
+  
