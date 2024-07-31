@@ -12,7 +12,7 @@ import ModuleRoutes from './Kanbas/Modules/routes.js';
 import AssignmentsRoutes from './Kanbas/Assignments/route.js';
 import UserRoutes from './Users/routes.js';
 
-const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
 mongoose.connect(CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -25,11 +25,11 @@ mongoose.connect(CONNECTION_STRING, {
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: process.env.NETLIFY_URL || "http://localhost:3000",
+    origin: process.env.NETLIFY_URL,
 }));
 
 const sessionOptions = {
-    secret: process.env.SESSION_SECRET || "kanbas",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
