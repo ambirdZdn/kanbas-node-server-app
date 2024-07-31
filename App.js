@@ -13,16 +13,18 @@ import AssignmentsRoutes from './Kanbas/Assignments/route.js';
 import UserRoutes from './Users/routes.js';
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
-mongoose.connect(CONNECTION_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('MongoDB connected');
-}).catch((error) => {
-    console.error('MongoDB connection error:', error);
-});
+
+// Connect to MongoDB using Mongoose
+mongoose.connect(CONNECTION_STRING)
+    .then(() => {
+        console.log('MongoDB connected');
+    })
+    .catch((error) => {
+        console.error('MongoDB connection error:', error);
+    });
 
 const app = express();
+
 app.use(cors({
     credentials: true,
     origin: process.env.NETLIFY_URL,
@@ -35,7 +37,7 @@ const sessionOptions = {
     store: MongoStore.create({
         mongoUrl: CONNECTION_STRING,
         collectionName: 'sessions',
-        ttl: 14 * 24 * 60 * 60 // = 14 days
+        ttl: 14 * 24 * 60 * 60 // 14 days
     })
 };
 
@@ -59,7 +61,7 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentsRoutes(app);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;  // Port configuration
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
