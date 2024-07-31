@@ -10,22 +10,27 @@ export default function UserRoutes(app) {
     const status = await dao.deleteUser(req.params.userId);
     res.json(status);
    };
-  const findAllUsers = async (req, res) => {
-    const { role, name  } = req.query;
-    if (role) {
-        const users = await dao.findUsersByRole(role);
-        res.json(users);
-        return;
+   
+   const findAllUsers = async (req, res) => {
+    console.log("Fetching all users..."); // Add logging
+    const { role, name } = req.query;
+    try {
+      let users;
+      if (role) {
+          users = await dao.findUsersByRole(role);
+      } else if (name) {
+          users = await dao.findUsersByPartialName(name);
+      } else {
+          users = await dao.findAllUsers();
+      }
+      console.log("Users fetched:", users); // Add logging
+      res.json(users);
+    } catch (error) {
+      console.error("Error fetching users:", error); // Error logging
+      res.status(500).json({ message: "Error fetching users" });
     }
-    if (name) {
-        const users = await dao.findUsersByPartialName(name);
-        res.json(users);
-        return;
-    }
-    const users = await dao.findAllUsers();
-    res.json(users);
-    return;
   };
+
   const findUserById = async (req, res) => {
     const user = await dao.findUserById(req.params.userId);
     res.json(user);

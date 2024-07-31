@@ -61,7 +61,11 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentsRoutes(app);
 
-const PORT = process.env.PORT || 4000;  // Port configuration
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
